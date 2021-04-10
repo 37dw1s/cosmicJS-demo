@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Fetch using MySQL and Node.js</title>
+</head>
+
+<body>
+
+<form action="/student/insertdata" method="POST">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name"><br>
+  
+  <label for="gender">Gender:</label><br>
+  <input type="text" id="gender" name="gender"><br>
+    <label for="sport">Sport:</label><br>
+  <input type="text" id="sport" name="sport"><br>
+    <label for="level">Level:</label><br>
+  <input type="text" id="level" name="level"><br>    
+  <label for="email">Email id:</label><br>
+  <input type="text" id="email" name="email"><br>
+    <label for="phone">Phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+  
+ <input type="submit">
+</form>
+
+
+    <div class="table-data">
+        <h2>Display Data using Node.js & MySQL</h2>
+        <table border="1">
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Sport</th>
+                <th>Level</th>
+                <th>E-mail</th>
+                <th>Phone</th>
+            </tr>
+
+            <% if(userData.length!=0){ var i=1; userData.forEach(function(data){ %>
+                <tr>
+                    <td>
+                        <%=i; %>
+                    </td>
+                    <td>
+                        <%=data.A_Name %>
+                    </td>
+                    <td>
+                        <%=data.A_Gender%>
+                    </td>
+                    <td>
+                        <%=data.A_Sport%>
+                    </td>
+					<td>
+                        <%=data.A_Level%>
+                    </td>
+                    <td>
+                        <%=data.A_Email%>
+                    </td>
+                    <td>
+                        <%=data.A_Phone%>
+                    </td>
+
+
+                    <!-- <td><a href="/users/edit/<%=data.id%>">Edit</a></td>
+                    <td><a href="/users/delete/<%=data.id%>">Delete</a></td> -->
+                </tr>
+                <% i++; }) %>
+                    <% } else{ %>
+                        <tr>
+                            <td colspan="7">No Data Found</td>
+                        </tr>
+                        <% } %>
+        </table>
+    </div>
+</body>
+
+</html>
